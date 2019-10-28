@@ -2,6 +2,9 @@
 stdio.h>
 int a[20][20], q[20], visited[20], n, i, j, f = 0, r = -1;
 
+//Function declaration for BFS
+void bfs(int v);
+
 void main() {
  int v;
  printf("\n Enter the number of vertices:");
@@ -31,5 +34,17 @@ void main() {
  printf("\n Bfs is not possible. Not all nodes are reachable");
  break;
  }
+ }
+}
+
+//This is the function definition for BFS.
+//Made by User Vishnu-S-Reddy
+void bfs(int v) {
+ for(i = 1; i <= n; i++)
+ if(a[v][i] && !visited[i])
+ q[++r] = i;
+ if(f <= r) {
+ visited[q[f]] = 1;
+ bfs(q[f++]);
  }
 }
